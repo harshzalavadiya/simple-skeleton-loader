@@ -5,11 +5,13 @@
  */
 
 
-import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-import { JSX } from '@stencil/core';
+import '@stencil/core';
+
+
 
 
 export namespace Components {
+
   interface SkeletonLoader {
     'animated': boolean;
     'borderRadius': string;
@@ -20,10 +22,7 @@ export namespace Components {
     'width': string;
     'widthRandomness': number;
   }
-}
-
-declare namespace LocalJSX {
-  interface SkeletonLoader extends JSXBase.HTMLAttributes {
+  interface SkeletonLoaderAttributes extends StencilHTMLAttributes {
     'animated'?: boolean;
     'borderRadius'?: string;
     'color'?: string;
@@ -33,25 +32,16 @@ declare namespace LocalJSX {
     'width'?: string;
     'widthRandomness'?: number;
   }
-
-  interface ElementInterfaces {
-    'SkeletonLoader': Components.SkeletonLoader;
-  }
-
-  interface IntrinsicElements {
-    'SkeletonLoader': LocalJSX.SkeletonLoader;
-  }
-}
-export { LocalJSX as JSX };
-
-declare module "@stencil/core" {
-  export namespace JSX {
-    interface ElementInterfaces extends LocalJSX.ElementInterfaces {}
-    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
-  }
 }
 
 declare global {
+  interface StencilElementInterfaces {
+    'SkeletonLoader': Components.SkeletonLoader;
+  }
+
+  interface StencilIntrinsicElements {
+    'skeleton-loader': Components.SkeletonLoaderAttributes;
+  }
 
 
   interface HTMLSkeletonLoaderElement extends Components.SkeletonLoader, HTMLStencilElement {}
@@ -59,6 +49,7 @@ declare global {
     prototype: HTMLSkeletonLoaderElement;
     new (): HTMLSkeletonLoaderElement;
   };
+
   interface HTMLElementTagNameMap {
     'skeleton-loader': HTMLSkeletonLoaderElement
   }
@@ -66,5 +57,14 @@ declare global {
   interface ElementTagNameMap {
     'skeleton-loader': HTMLSkeletonLoaderElement;
   }
-}
 
+
+  export namespace JSX {
+    export interface Element {}
+    export interface IntrinsicElements extends StencilIntrinsicElements {
+      [tagName: string]: any;
+    }
+  }
+  export interface HTMLAttributes extends StencilHTMLAttributes {}
+
+}

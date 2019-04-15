@@ -1,8 +1,8 @@
 {
   "name": "simple-skeleton-loader",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Skeleton loader webcomponent",
-  "module": "dist/esm/index.js",
+  "module": "dist/index.js",
   "main": "dist/index.js",
   "unpkg": "dist/index.js",
   "types": "dist/types/components.d.ts",
@@ -18,7 +18,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@stencil/core": "^1.0.0-alpha.9"
+    "@stencil/core": "^0.18.1"
   },
   "repository": {
     "type": "git",
