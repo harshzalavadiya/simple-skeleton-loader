@@ -1,0 +1,31 @@
+{
+  "name": "simple-skeleton-loader",
+  "version": "0.0.2",
+  "description": "Skeleton loader webcomponent",
+  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "unpkg": "dist/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@stencil/core": "^1.0.0-alpha.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harshzalavadiya/simple-skeleton-loader"
+  },
+  "bugs": {
+    "url": "https://github.com/harshzalavadiya/simple-skeleton-loader/issues"
+  },
+  "license": "MIT"
+}
